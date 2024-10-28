@@ -76,105 +76,12 @@ Voir [Guide de configuration](docs/configuration.md)
 Voir [Guide des tests](docs/tests.md)
 
 ## Plan de Test
+Voir [Guide des tests](docs/plan_de_test.md)
 
-### Phase 1 : Tests Basiques
-- [x] Test de connectivité réseau
-  - Vérification des connexions entre les VMs
-  - Test de la topologie réseau
-  - Validation des règles de firewall
-
-- [x] Capture et analyse de trafic
-  - Configuration des interfaces de capture
-  - Vérification des capacités de capture
-  - Test de performances
-
-- [x] Transmission des logs
-  - Configuration des agents Beats
-  - Validation du flux vers Elasticsearch
-  - Test de la rétention des données
-
-### Phase 2 : Tests d'Intrusion
-- [ ] Scan de ports
-  - Utilisation de Nmap
-  - Détection des services exposés
-  - Identification des vulnérabilités
-
-- [ ] Tests de brute force
-  - Attaques SSH
-  - Test des mécanismes de détection
-  - Validation des alertes
-
-- [ ] Injection SQL
-  - Test des applications web
-  - Validation des signatures IDS
-  - Analyse des faux positifs
-
-- [ ] Tests d'exploitation
-  - Utilisation de Metasploit
-  - Test des CVE connues
-  - Validation de la détection
-
-### Phase 3 : Validation
-- [ ] Détection des attaques
-  - Vérification des règles Suricata
-  - Test des signatures personnalisées
-  - Optimisation des performances
-
-- [ ] Analyse des logs
-  - Validation du format des logs
-  - Test des dashboards Kibana
-  - Vérification des métriques
-
-- [ ] Validation des alertes
-  - Test du système de notification
-  - Validation du workflow d'incidents
-  - Documentation des cas d'usage
 
 ## Planning
+Voir [Guide des tests](docs/planning.md)
 
-### Semaine 1 : Setup Infrastructure
-- [ ] Installation des machines virtuelles
-  - Configuration VirtualBox
-  - Déploiement des OS
-  - Configuration réseau de base
-
-- [ ] Configuration réseau
-  - Mise en place des VLANs
-  - Configuration du routage
-  - Tests de connectivité
-
-### Semaine 2 : Déploiement IDS
-- [ ] Installation Suricata
-  - Compilation et installation
-  - Configuration initiale
-  - Tests de base
-
-- [ ] Configuration des règles
-  - Import des règles ET/Pro
-  - Création de règles personnalisées
-  - Optimisation des performances
-
-### Semaine 3 : SIEM
-- [ ] Installation Elastic Stack
-  - Déploiement Elasticsearch
-  - Configuration Kibana
-  - Setup Logstash
-
-- [ ] Configuration dashboards
-  - Création des visualisations
-  - Configuration des alertes
-  - Test des rapports
-
-### Semaine 4 : Phase de Tests
-- [ ] Tests d'intrusion
-  - Exécution du plan de test
-  - Documentation des résultats
-  - Ajustements configuration
-
-- [ ] Validation finale
-  - Tests de charge
-  - Validation des alertes
-  - Documentation finale
 
 ## Livrables
 
