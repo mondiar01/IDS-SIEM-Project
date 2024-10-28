@@ -18,10 +18,10 @@ Le projet vise à :
 ### Red Team
 - Tests de pénétration : Oussama, Amine, Mostafa
 
-## 🏗️ Architecture
-
+## Architecture
+![Architecture du Projet](docs/images/architecture.jpg)
 ### Composants
-![architecture de l'infra](architecture.jpg)
+
 - IDS : Suricata
 - SIEM : Elastic Stack (Elasticsearch, Kibana, Logstash, Beats)
 - Plateforme de test : Kali Linux
@@ -51,26 +51,29 @@ Le projet vise à :
    - Documentation des procédures
    - Traçabilité des actions
 
-## 📁 Structure du Projet
-/
-├── docs/
-│ ├── installation.md # Guide d'installation
-│ ├── configuration.md # Guide de configuration
-│ └── tests.md # Procédures de test
-├── config/
-│ ├── suricata/ # Configurations Suricata
-│ └── elastic/ # Configurations Elastic Stack
-├── scripts/
-│ ├── setup/ # Scripts d'installation
-│ └── tests/ # Scripts de test
-└── results/
-└── test-reports/ # Rapports de tests
+## Structure du Projet
+📁 Project Root
+├── 📁 docs/
+│ ├── 📄 installation.md
+│ ├── 📄 configuration.md
+│ └── 📄 tests.md
+├── 📁 config/
+│ ├── 📁 suricata/
+│ └── 📁 elastic/
+├── 📁 scripts/
+│ ├── 📁 setup/
+│ └── 📁 tests/
+└── 📁 results/
+└── 📁 test-reports/
 
 ## 🚀 Installation
-1. Cloner le repository
-    ```bash
-    git clone https://github.com/mondiar01/IDS-SIEM-Project.git
-    cd IDS-SIEM-Project
+Voir [Guide d'installation](docs/installation.md)
+
+## Configuration
+Voir [Guide de configuration](docs/configuration.md)
+
+## Tests
+Voir [Guide des tests](docs/tests.md)
 
 ## Plan de Test
 

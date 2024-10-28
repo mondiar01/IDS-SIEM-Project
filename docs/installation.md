@@ -1,5 +1,8 @@
 # Guide d'Installation
-
+1. Cloner le repository
+    ```bash
+    git clone https://github.com/mondiar01/IDS-SIEM-Project.git
+    cd IDS-SIEM-Project
 ## Prérequis
 - VirtualBox 6.1+
 - 16GB RAM minimum
