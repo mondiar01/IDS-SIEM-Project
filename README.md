@@ -11,7 +11,7 @@ Le projet vise à :
 
 ## 👥 Équipe
 ### Blue Team
-- Chef de Projet : Diamoye NDIAYE
+- Chef de Projet : Modou Ndiar DIA
 - Installation Suricata : Anthony, Leslie
 - Configuration Elastic Stack : Brahim
 
@@ -21,6 +21,7 @@ Le projet vise à :
 ## 🏗️ Architecture
 
 ### Composants
+![architecture de l'infra](architecture.jpg)
 - IDS : Suricata
 - SIEM : Elastic Stack (Elasticsearch, Kibana, Logstash, Beats)
 - Plateforme de test : Kali Linux
@@ -229,7 +230,7 @@ Le projet vise à :
 ## Contact
 
 ### Support et Assistance
-- Chef de Projet : diamoye.ndiaye@efrei.net
+- Chef de Projet : modou-ndiar.dia@efrei.net
 - Support Technique : support.technique@projet-ids.com
 
 ## Licence
