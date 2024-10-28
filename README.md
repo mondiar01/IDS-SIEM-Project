@@ -11,16 +11,17 @@ Le projet vise à :
 
 ## 👥 Équipe
 ### Blue Team
-- Chef de Projet : Diamoye NDIAYE
+- Chef de Projet : Modou Ndiar DIA
 - Installation Suricata : Anthony, Leslie
 - Configuration Elastic Stack : Brahim
 
 ### Red Team
 - Tests de pénétration : Oussama, Amine, Mostafa
 
-## 🏗️ Architecture
-
+## Architecture
+![Architecture du Projet](docs/images/architecture.jpg)
 ### Composants
+
 - IDS : Suricata
 - SIEM : Elastic Stack (Elasticsearch, Kibana, Logstash, Beats)
 - Plateforme de test : Kali Linux
@@ -50,26 +51,29 @@ Le projet vise à :
    - Documentation des procédures
    - Traçabilité des actions
 
-## 📁 Structure du Projet
-/
-├── docs/
-│ ├── installation.md # Guide d'installation
-│ ├── configuration.md # Guide de configuration
-│ └── tests.md # Procédures de test
-├── config/
-│ ├── suricata/ # Configurations Suricata
-│ └── elastic/ # Configurations Elastic Stack
-├── scripts/
-│ ├── setup/ # Scripts d'installation
-│ └── tests/ # Scripts de test
-└── results/
-└── test-reports/ # Rapports de tests
+## Structure du Projet
+📁 Project Root
+├── 📁 docs/
+│ ├── 📄 installation.md
+│ ├── 📄 configuration.md
+│ └── 📄 tests.md
+├── 📁 config/
+│ ├── 📁 suricata/
+│ └── 📁 elastic/
+├── 📁 scripts/
+│ ├── 📁 setup/
+│ └── 📁 tests/
+└── 📁 results/
+└── 📁 test-reports/
 
 ## 🚀 Installation
-1. Cloner le repository
-    ```bash
-    git clone https://github.com/mondiar01/IDS-SIEM-Project.git
-    cd IDS-SIEM-Project
+Voir [Guide d'installation](docs/installation.md)
+
+## Configuration
+Voir [Guide de configuration](docs/configuration.md)
+
+## Tests
+Voir [Guide des tests](docs/tests.md)
 
 ## Plan de Test
 
@@ -229,7 +233,7 @@ Le projet vise à :
 ## Contact
 
 ### Support et Assistance
-- Chef de Projet : diamoye.ndiaye@efrei.net
+- Chef de Projet : modou-ndiar.dia@efrei.net
 - Support Technique : support.technique@projet-ids.com
 
 ## Licence
