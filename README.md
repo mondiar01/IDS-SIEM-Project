@@ -76,11 +76,11 @@ Voir [Guide de configuration](docs/configuration.md)
 Voir [Guide des tests](docs/tests.md)
 
 ## Plan de Test
-Voir [Guide des tests](docs/plan_de_test.md)
+Voir [Guide des plan de test](docs/plan_de_test.md)
 
 
 ## Planning
-Voir [Guide des tests](docs/planning.md)
+Voir [Guide du planning](docs/planning.md)
 
 
 ## Livrables
