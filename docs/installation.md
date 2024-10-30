@@ -20,6 +20,14 @@
 
 Suricata est un outil open source de détection de menaces réseau. Il utilise des règles et des signatures pour détecter les menaces dans le trafic réseau. Ce guide explique comment installer et configurer Suricata sur Ubuntu 18.04.
 
+### Prerequis
+- VM Ubuntu 18.04 server
+- 4 GB RAM
+- 2 cpu
+- 40 GB stockage
+- 2 carte réseau : 1 bridge et 1 host-only avec le mode promiscuous activé sur toute les vms
+
+  
 ### Installation
 
 Il existe deux méthodes pour installer Suricata sur Ubuntu 18.04 :
