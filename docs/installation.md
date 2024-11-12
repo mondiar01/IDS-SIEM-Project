@@ -16,10 +16,10 @@
 
 Un IDS nécessite au moins 2 interfaces réseau :
 - L'interface de gestion pour l'administration qui est un "bridge"
-  ![Interface de gestion](/images/interface_gestion.png)
+  ![Interface de gestion](/docs/images/interface_gestion.png)
 - L'interface de capture (sniffing) pour recevoir tout le trafic réseau qui est un "host-only" avec le
 mode Promiscuité activé en "Allow all"
-  ![Interface de capture](/images/interface_capture.png)
+  ![Interface de capture](/docs/images/interface_capture.png)
 
 L'interface de capture doit être configurée en mode promiscuous pour recevoir tous les paquets du réseau, pas seulement ceux qui lui sont adressés.
 
