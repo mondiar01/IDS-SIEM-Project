@@ -13,10 +13,10 @@ Le projet vise à :
 ### Blue Team
 - Chef de Projet : Modou Ndiar DIA
 - Installation Suricata : Anthony, Leslie
-- Configuration Elastic Stack : Brahim
+- Configuration Elastic Stack : Brahim, Amine
 
 ### Red Team
-- Tests de pénétration : Oussama, Amine, Mostafa
+- Tests de pénétration : Oussama,  Mostafa
 
 ## Architecture
 ![Architecture du Projet](docs/images/architecture.jpg)
@@ -29,12 +29,12 @@ Le projet vise à :
 ### Configuration Matérielle Requise
 - VirtualBox/VMware
 - Minimum 16GB RAM sur l'hôte
-- 50GB espace disque disponible
+- 140GB espace disque disponible
 
 ### Configuration des VMs
 - Firewall/Router : 2 CPU, 2GB RAM
-- Suricata IDS : 4 CPU, 4GB RAM
-- Elastic Stack : 4 CPU, 8GB RAM
+- Suricata IDS : 2 CPU, 4GB RAM
+- Elastic Stack : 2 CPU, 8GB RAM
 - Kali Linux : 2 CPU, 4GB RAM
 
 ## 🎯 Objectifs
@@ -147,4 +147,4 @@ Voir [Guide des tests](docs/planning.md)
 Ce projet est sous licence MIT.
 
 ---
-*Dernière mise à jour : 28 Octobre 2024*
+*Dernière mise à jour : 13 Novembre 2024*
