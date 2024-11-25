@@ -17,24 +17,34 @@ jobs:
           mkdir -p results/pdf
           mkdir -p results/word
 
+      - name: List directory structure
+        run: |
+          echo "Current directory structure:"
+          ls -R
+
       - name: Convert MD to PDF and DOCX
         run: |
-          for file in docs/*.md; do
-            filename=$(basename "$file" .md)
-            # Convert to PDF
-            pandoc "$file" \
-              -f markdown \
-              -t pdf \
-              --pdf-engine=xelatex \
-              --resource-path=.:docs:docs/images \
-              -o "results/pdf/${filename}.pdf"
-            
-            # Convert to DOCX
-            pandoc "$file" \
-              -f markdown \
-              -t docx \
-              --resource-path=.:docs:docs/images \
-              -o "results/word/${filename}.docx"
+          cd docs
+          for file in *.md; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file" .md)
+              echo "Converting $file..."
+              
+              # Convert to PDF
+              pandoc "$file" \
+                -f markdown \
+                -t pdf \
+                --pdf-engine=xelatex \
+                --extract-media=. \
+                -o "../results/pdf/${filename}.pdf"
+              
+              # Convert to DOCX
+              pandoc "$file" \
+                -f markdown \
+                -t docx \
+                --extract-media=. \
+                -o "../results/word/${filename}.docx"
+            fi
           done
 
       - name: Upload PDF results
