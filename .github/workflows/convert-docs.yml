@@ -13,8 +13,19 @@ on:
 jobs:
   convert-documents:
     runs-on: ubuntu-latest
+    
+    # Spécifier Node.js 20
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Mise à jour vers v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4  # Mise à jour vers v4
+        with:
+          node-version: ${{ matrix.node-version }}
       
       - name: Install Pandoc and LaTeX dependencies
         run: |
@@ -35,10 +46,11 @@ jobs:
       - name: Prepare files
         run: |
           mkdir -p temp
-          cp docs/*.md temp/
+          find . -name "*.md" -exec cp {} temp/ \;
           cp -r docs/images temp/
           for file in temp/*.md; do
             sed -i 's|/docs/images/|images/|g' "$file"
+            sed -i 's|\[Architecture du Projet\](docs/images/|[Architecture du Projet](images/|g' "$file"
           done
 
       - name: Convert MD to PDF and DOCX
@@ -71,26 +83,23 @@ jobs:
             fi
           done
 
-      - name: Commit results
+      - name: List generated files
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          
-          # Obtenir le nom de la branche courante
-          BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
-          
-          git add results/
-          git commit -m "Update converted documents for branch $BRANCH_NAME" || echo "No changes to commit"
-          git push origin $BRANCH_NAME || echo "No changes to push"
+          echo "Generated PDF files:"
+          ls -l results/pdf/
+          echo "Generated DOCX files:"
+          ls -l results/word/
 
       - name: Upload PDF results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Mise à jour vers v4
         with:
-          name: pdf-documents-${{ github.ref_name }}
+          name: pdf-documents
           path: results/pdf/
+          retention-days: 90  # Ajout d'une période de rétention
 
       - name: Upload WORD results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Mise à jour vers v4
         with:
-          name: word-documents-${{ github.ref_name }}
+          name: word-documents
           path: results/word/
+          retention-days: 90  # Ajout d'une période de rétention
