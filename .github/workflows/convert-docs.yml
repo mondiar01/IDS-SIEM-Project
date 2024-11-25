@@ -26,12 +26,14 @@ jobs:
               -f markdown \
               -t pdf \
               --pdf-engine=xelatex \
+              --resource-path=.:docs:docs/images \
               -o "results/pdf/${filename}.pdf"
             
             # Convert to DOCX
             pandoc "$file" \
               -f markdown \
               -t docx \
+              --resource-path=.:docs:docs/images \
               -o "results/word/${filename}.docx"
           done
 
