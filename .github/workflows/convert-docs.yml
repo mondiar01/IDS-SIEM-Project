@@ -5,7 +5,7 @@ jobs:
   convert-documents:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Install Pandoc
         run: |
@@ -36,13 +36,13 @@ jobs:
           done
 
       - name: Upload PDF results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pdf-documents
           path: results/pdf/
 
       - name: Upload WORD results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: word-documents
           path: results/word/
