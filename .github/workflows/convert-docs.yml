@@ -7,10 +7,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Install Pandoc
+      - name: Install Pandoc and LaTeX dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install pandoc texlive-xetex
+          sudo apt-get install -y \
+            pandoc \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-lang-french \
+            texlive-latex-extra \
+            lmodern
 
       - name: Create output directories
         run: |
@@ -19,12 +25,9 @@ jobs:
 
       - name: Prepare files
         run: |
-          # Créer un dossier temporaire
           mkdir -p temp
-          # Copier les fichiers MD et les images dans le dossier temp
           cp docs/*.md temp/
           cp -r docs/images temp/
-          # Modifier les chemins des images dans les fichiers MD
           for file in temp/*.md; do
             sed -i 's|/docs/images/|images/|g' "$file"
           done
@@ -42,12 +45,19 @@ jobs:
                 -f markdown \
                 -t pdf \
                 --pdf-engine=xelatex \
+                -V geometry:margin=1in \
+                -V lang=fr \
+                -V documentclass=article \
+                -V mainfont="Latin Modern Roman" \
+                --standalone \
+                --toc \
                 -o "../results/pdf/${filename}.pdf"
               
               # Convert to DOCX
               pandoc "$file" \
                 -f markdown \
                 -t docx \
+                --toc \
                 -o "../results/word/${filename}.docx"
             fi
           done
