@@ -17,10 +17,22 @@ jobs:
           mkdir -p results/pdf
           mkdir -p results/word
 
-      - name: Convert MD to PDF and DOCX
-        working-directory: .
+      - name: Prepare files
         run: |
-          for file in docs/*.md; do
+          # Créer un dossier temporaire
+          mkdir -p temp
+          # Copier les fichiers MD et les images dans le dossier temp
+          cp docs/*.md temp/
+          cp -r docs/images temp/
+          # Modifier les chemins des images dans les fichiers MD
+          for file in temp/*.md; do
+            sed -i 's|/docs/images/|images/|g' "$file"
+          done
+
+      - name: Convert MD to PDF and DOCX
+        working-directory: temp
+        run: |
+          for file in *.md; do
             if [ -f "$file" ]; then
               filename=$(basename "$file" .md)
               echo "Converting $file..."
@@ -30,15 +42,13 @@ jobs:
                 -f markdown \
                 -t pdf \
                 --pdf-engine=xelatex \
-                --resource-path="." \
-                -o "results/pdf/${filename}.pdf"
+                -o "../results/pdf/${filename}.pdf"
               
               # Convert to DOCX
               pandoc "$file" \
                 -f markdown \
                 -t docx \
-                --resource-path="." \
-                -o "results/word/${filename}.docx"
+                -o "../results/word/${filename}.docx"
             fi
           done
 
