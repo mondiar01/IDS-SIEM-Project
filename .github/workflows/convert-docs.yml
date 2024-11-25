@@ -1,0 +1,48 @@
+name: Convert Documentation
+on: [push]
+
+jobs:
+  convert-documents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install pandoc texlive-xetex
+
+      - name: Create output directories
+        run: |
+          mkdir -p results/pdf
+          mkdir -p results/word
+
+      - name: Convert MD to PDF and DOCX
+        run: |
+          for file in docs/*.md; do
+            filename=$(basename "$file" .md)
+            # Convert to PDF
+            pandoc "$file" \
+              -f markdown \
+              -t pdf \
+              --pdf-engine=xelatex \
+              -o "results/pdf/${filename}.pdf"
+            
+            # Convert to DOCX
+            pandoc "$file" \
+              -f markdown \
+              -t docx \
+              -o "results/word/${filename}.docx"
+          done
+
+      - name: Upload PDF results
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf-documents
+          path: results/pdf/
+
+      - name: Upload WORD results
+        uses: actions/upload-artifact@v2
+        with:
+          name: word-documents
+          path: results/word/
