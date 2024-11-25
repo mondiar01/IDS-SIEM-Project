@@ -1,5 +1,14 @@
 name: Convert Documentation
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/*
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
   convert-documents:
@@ -62,14 +71,26 @@ jobs:
             fi
           done
 
+      - name: Commit results
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Obtenir le nom de la branche courante
+          BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+          
+          git add results/
+          git commit -m "Update converted documents for branch $BRANCH_NAME" || echo "No changes to commit"
+          git push origin $BRANCH_NAME || echo "No changes to push"
+
       - name: Upload PDF results
         uses: actions/upload-artifact@v3
         with:
-          name: pdf-documents
+          name: pdf-documents-${{ github.ref_name }}
           path: results/pdf/
 
       - name: Upload WORD results
         uses: actions/upload-artifact@v3
         with:
-          name: word-documents
+          name: word-documents-${{ github.ref_name }}
           path: results/word/
