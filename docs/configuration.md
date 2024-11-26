@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Configuration de Suricata sur Ubuntu 20.04
 
 ## 1. Configuration du fichier principal
